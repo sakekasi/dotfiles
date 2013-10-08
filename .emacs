@@ -5,6 +5,8 @@
 (global-set-key (kbd "C-x C-g") 'goto-line)
 (global-set-key (kbd "C-x C-u") 'undo)
 
+(set-face-attribute 'default nil :font "Inconsolata Medium 12")
+
 ;allow system copy/paste to interface with emacs copy/paste
 (setq x-select-enable-clipboard t)
 
@@ -24,7 +26,7 @@
 
 (defun my-c-hook ()
   (c-toggle-auto-newline 1)
-  (c-set-style "linux")
+  (c-set-style "gnu")
   (setq tab-width 2
 	indent-tabs-mode nil)
   (local-set-key (kbd "C-c C-u") 'uncomment-region)
@@ -127,3 +129,12 @@
 	    		 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
 
 ;;; haskell mode
+;; requires haskell to be installed in /usr/share/emacs/site-list/haskell-mode
+;; to install add package haskell-mode in ubuntu or
+;; package emacs-haskell-mode in arch
+;;(load "/usr/share/emacs/site-lisp/haskell-mode/haskell-site-file")
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode 'turn-on-haskell-indent)
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/haskell-mode")
+;;(require 'haskell-mode-autoloads)
+;;(add-to-list 'Info-default-directory-list "/usr/share/emacs/site-lisp/haskell-mode")
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode 'turn-on-haskell-indent)
